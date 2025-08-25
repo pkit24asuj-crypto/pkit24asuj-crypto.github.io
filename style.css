@@ -1,28 +1,420 @@
+/* Custom CSS for Nepal Wikipedia */
+
+:root {
+  --primary-color: #0066cc;
+  --secondary-color: #f8f9fa;
+  --accent-color: #dc143c;
+  --text-color: #333;
+  --border-color: #dee2e6;
+  --sidebar-bg: #f8f9fa;
+  --header-bg: #ffffff;
+}
+
+.dark-mode {
+  --primary-color: #4dabf7;
+  --secondary-color: #212529;
+  --accent-color: #ff6b6b;
+  --text-color: #e9ecef;
+  --border-color: #495057;
+  --sidebar-bg: #343a40;
+  --header-bg: #212529;
+}
+
+* {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
 body {
-font-family: Arial, sans-serif;
-margin: 0;
-padding: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text-color);
+  background-color: var(--secondary-color);
 }
-header {
-background-color: red;
-color: #fff;
-text-decoration: underline;
+
+/* Header Styles */
+.wiki-header {
+  background-color: var(--header-bg);
+  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
-main {
-padding: 1rem;
+
+.wiki-logo {
+  display: flex;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--primary-color);
 }
-footer {
-background-color: #f1f1f1;
-text-align: center;
-padding: 1rem;
-margin-top: 20px;
-} 
-nav a:hover 
-{
+
+.wiki-logo i {
+  margin-right: 0.5rem;
+  font-size: 2rem;
+}
+
+.search-container {
+  position: relative;
+}
+
+.search-input {
+  padding-right: 50px;
+  border: 2px solid var(--border-color);
+  border-radius: 25px;
+}
+
+.search-btn {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Sidebar Styles */
+.sidebar {
+  background-color: var(--sidebar-bg);
+  min-height: calc(100vh - 80px);
+  border-right: 1px solid var(--border-color);
+  padding: 1.5rem 1rem;
+  position: sticky;
+  top: 80px;
+  overflow-y: auto;
+  max-height: calc(100vh - 80px);
+}
+
+.sidebar-heading {
+  color: var(--primary-color);
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-size: 0.875rem;
+  letter-spacing: 0.5px;
+}
+
+.sidebar .nav-link {
+  color: var(--text-color);
+  padding: 0.5rem 0;
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.sidebar .nav-link:hover {
+  color: var(--primary-color);
+  background-color: rgba(0, 102, 204, 0.1);
+  border-radius: 4px;
+  padding-left: 0.5rem;
+}
+
+/* Main Content Styles */
+.main-content {
+  padding: 2rem;
+  background-color: white;
+  min-height: calc(100vh - 80px);
+}
+
+.dark-mode .main-content {
+  background-color: var(--secondary-color);
+}
+
+.article-header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 3px solid var(--primary-color);
+}
+
+.article-title {
+  font-size: 2.5rem;
+  font-weight: 300;
+  color: var(--text-color);
+  margin-bottom: 0.5rem;
+}
+
+.article-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* Table of Contents */
+.toc-container {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.toc-container h4 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.toc-list {
+  margin-bottom: 0;
+}
+
+.toc-list a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.toc-list a:hover {
+  text-decoration: underline;
+}
+
+/* Content Sections */
+.content-section {
+  margin-bottom: 3rem;
+}
+
+.content-section h2 {
+  color: var(--text-color);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  font-weight: 400;
+}
+
+.content-section h3 {
+  color: var(--primary-color);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+}
+
+.content-section p {
+  margin-bottom: 1rem;
+  text-align: justify;
+}
+
+/* Image Gallery */
+.image-gallery {
+  margin: 2rem 0;
+}
+
+.image-caption {
+  font-size: 0.9rem;
+  color: #666;
+  text-align: center;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+/* Infobox */
+.infobox {
+  background-color: var(--secondary-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  position: sticky;
+  top: 100px;
+  margin-bottom: 2rem;
+}
+
+.infobox-header h4 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.infobox table {
+  margin-bottom: 0;
+}
+
+.infobox td {
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--border-color);
+  vertical-align: top;
+}
+
+.infobox td:first-child {
+  font-weight: 600;
+  width: 40%;
+}
+
+/* Cards */
+.card {
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+  color: var(--primary-color);
+  font-size: 1.1rem;
+}
+
+/* References */
+.references-list {
+  font-size: 0.9rem;
+  line-height: 1.8;
+}
+
+.references-list li {
+  margin-bottom: 0.5rem;
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.back-to-top:hover {
+  background-color: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+/* Footer */
+.wiki-footer {
+  background-color: var(--sidebar-bg);
+  border-top: 1px solid var(--border-color);
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+.wiki-footer a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.wiki-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Dark Mode Styles */
+.dark-mode .wiki-header,
+.dark-mode .main-content,
+.dark-mode .card {
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+}
+
+.dark-mode .card {
+  border-color: var(--border-color);
+}
+
+.dark-mode .search-input {
+  background-color: var(--secondary-color);
+  border-color: var(--border-color);
+  color: var(--text-color);
+}
+
+.dark-mode .article-subtitle,
+.dark-mode .image-caption {
+  color: #adb5bd;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .sidebar {
+    position: static;
+    min-height: auto;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .main-content {
     padding: 1rem;
-color: #fff;
-margin-right: 10px;
-text-decoration: none;
+  }
 
+  .article-title {
+    font-size: 2rem;
+  }
+
+  .infobox {
+    position: static;
+    margin-bottom: 2rem;
+  }
+
+  .wiki-logo span {
+    display: none;
+  }
+
+  .search-container {
+    margin: 1rem 0;
+  }
 }
 
+@media (max-width: 576px) {
+  .article-title {
+    font-size: 1.8rem;
+  }
+
+  .content-section h2 {
+    font-size: 1.5rem;
+  }
+
+  .back-to-top {
+    bottom: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+  }
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Loading Animation */
+.loading {
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Print Styles */
+@media print {
+  .sidebar,
+  .wiki-header,
+  .back-to-top,
+  .wiki-footer {
+    display: none !important;
+  }
+
+  .main-content {
+    padding: 0;
+    margin: 0;
+  }
+
+  .content-section {
+    page-break-inside: avoid;
+  }
+}
